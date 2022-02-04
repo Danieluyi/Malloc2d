@@ -22,8 +22,12 @@
 **		int		i;
 **	
 **		i = 0;
-**		ptr = (char **)malloc2d(2, 3);
-**		ptr[0][0] = '1';
+**		
+**		// Just a dummy code to show how 
+**		// malloc2D is used to alloc 2D
+**		// heap mem for a 2D pointer
+**		ptr = (char **)malloc2d(2, 3);		// malloc2d() takes 2 args. arg 1 is the number of sub-arrays we need in our 2D pointer. arg 2 is the max strlen
+**		ptr[0][0] = '1';			// of each array. 
 **		ptr[0][1] = '2';
 **		ptr[0][2] = '3';
 **		ptr[0][3] = '\0';
@@ -35,7 +39,13 @@
 **			i++;
 **	}
 */
-
+	// The code is pretty straightforward
+	// Assign memory to a pointer, then 
+	// dynamically partition that memory 
+	// for use by a 2D pointer.
+	// Malloc2d returns a pointer to a 
+	// heap memory location that only needs
+	// one free() to release.
 void	**malloc2d(size_t row, size_t len)
 {
 	size_t		rowbyte;
